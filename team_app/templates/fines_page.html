@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style> body h1 {background-color:#000000; color:white} </style>
+    <title>Fines</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<h1> Fines </h1>
+<body>
+
+<div class="sidebar">
+<table align='center' style="border:1px solid black;float:left;width:25%;background-color:white;">
+    <caption style="font-size:32px"><b>Fines List</b></caption>
+    <tr style="outline:thin solid">
+        <th style="outline:thin solid">Fine</th>
+        <th style="outline:thin solid">Cost</th>
+    </tr>
+
+    <tbody>
+        {% for d in data %}
+            <tr style="outline:thin solid">
+                <td style="outline:thin solid">{{d.fine}}</td>
+                <td style="outline:thin solid">{{d.cost}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+
+<div>
+<table align='center' style="border:1px solid black;float:left;width:25%;background-color:white;">
+    <caption style="font-size:32px"><b>Player Fines</b></caption>
+    <tr style="outline:thin solid">
+        <th style="outline:thin solid">Name</th>
+        <th style="outline:thin solid">Fine</th>
+        <th style="outline:thin solid">Cost</th>
+        <th style="outline:thin solid">Paid</th>
+    </tr>
+
+    <tbody>
+        {% for f in fines %}
+            <tr style="outline:thin solid">
+                <td style="outline:thin solid">{{f.player_name}}</td>
+                <td style="outline:thin solid">{{f.player_fine}}</td>
+                <td style="outline:thin solid">{{f.player_cost}}</td>
+                <td style="outline:thin solid">{{f.player_paid}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+
+<div>
+<table align="center" style="border:1px solid black;float:left;width:25%;background-color:white;">
+    <caption style="font-size:32px"><b>Unpaid Fines</b></caption>
+    <tr style="outline:thin solid">
+        <th style="outline:thin solid">Name</th>
+        <th style="outline:thin solid">Cost</th>
+    </tr>
+
+    <tbody>
+        {% for gf in groupedFines %}
+            <tr style="outline:thin solid">
+                <td style="outline:thin solid">{{gf.player_name__player}}</td>
+                <td style="outline:thin solid">{{gf.total_cost}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+
+
+</body>
+</html>
+</body>
+</html>
